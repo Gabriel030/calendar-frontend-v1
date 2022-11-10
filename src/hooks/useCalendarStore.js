@@ -41,6 +41,13 @@ export const useCalendarStore = () => {
             //estoy creando nota
             const {data} = await calendarApi.post("/events", calendarEvent)    
             dispatch(onAddNewEvent({ ...calendarEvent, id: data.evento.id, user}));
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Guardado exitoso',
+              showConfirmButton: false,
+              timer: 1500
+            })
 
 
         } catch (error) {
